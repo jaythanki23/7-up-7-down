@@ -70,8 +70,8 @@ const GameState = props => {
     };
 
     try {
-      const res = await axios.post('http://localhost:10000/api/game', data, config);
-
+      // const res = await axios.post('http://localhost:10000/api/game', data, config);https://seven-up-7-down-server.onrender.com
+      const res = await axios.post('https://seven-up-7-down-server.onrender.com/api/game', data, config);
       setResponse(res.data);
       setPopupState(true);
     } catch (error) {
