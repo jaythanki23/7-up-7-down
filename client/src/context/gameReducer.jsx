@@ -1,4 +1,4 @@
-import { SET_BET, SET_NAME, SET_SCORE, UPDATE_SCORE, SET_NUMBER, IS_BET_SELECTED } from "../types";
+import { SET_BET, SET_NAME, UPDATE_SCORE, SET_NUMBER, SET_POPUP_STATE, SET_RESPONSE } from "../types";
 
 
 const gameReducer = (state, action) => {
@@ -12,14 +12,36 @@ const gameReducer = (state, action) => {
       return {
         ...state,
         bet: action.payload.bet,
-        isBetSelected: true
+        isBetSelected: action.payload.bool
       }
     case SET_NUMBER:
       return {
         ...state,
         number: action.payload.number,
-        isNumberSelected: true
+        isNumberSelected: action.payload.bool
       }
+    case UPDATE_SCORE:
+      return {
+        ...state,
+        score: action.payload.score
+      }
+    case SET_POPUP_STATE:
+      return {
+        ...state,
+        open: action.payload.bool
+      }
+    case SET_RESPONSE:
+      return {
+        ...state,
+        score: action.payload.response.score,
+        bet: action.payload.response.bet, 
+        number: action.payload.response.number,
+        die1: action.payload.response.die1,
+        die2: action.payload.response.die2,
+        result: action.payload.response.result,
+        takeaway: action.payload.response.takeaway
+      }
+    
     default:
       return state;
   }

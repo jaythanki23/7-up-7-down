@@ -6,8 +6,7 @@ const Bet = () => {
   const { bet, setBet } = useContext(gameContext);
 
   const handleOnClick = (amount) => {
-    console.log(amount);
-    setBet(amount);
+    setBet(amount, true);
   }
 
   console.log(bet);

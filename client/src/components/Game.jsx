@@ -3,6 +3,7 @@ import { Box, Typography, Button  } from "@mui/material";
 import { Bet } from "./Bet";
 import { Number } from "./Number";
 import { gameContext } from "../context/gameContext";
+import { Result } from "./Result";
 
 const Game = () => {
   const { isBetSelected, isNumberSelected, rollTheDice } = useContext(gameContext);
@@ -54,6 +55,16 @@ const Game = () => {
         <Button disabled={!isNumberSelected} color="primary" variant="contained" style={{ margin: '0 10px' }} onClick={() => handleOnClick()}>
           Roll the Dice
         </Button>
+      </Box>
+
+      <Box 
+        display="flex" 
+        flexDirection="column" 
+        alignItems="center" 
+        p={3}
+        style={{ backgroundColor: 'white', color: 'black', borderRadius: '8px', width: 'fit-content', marginBottom: '20px' }}
+      >
+        <Result />
       </Box>
     </Box>
   );
