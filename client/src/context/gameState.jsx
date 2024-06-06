@@ -70,7 +70,7 @@ const GameState = props => {
     };
 
     try {
-      const res = await axios.post('http://localhost:5000/api/game', data, config);
+      const res = await axios.post('http://localhost:10000/api/game', data, config);
 
       setResponse(res.data);
       setPopupState(true);
